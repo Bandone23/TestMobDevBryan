@@ -6,8 +6,10 @@ import com.bancosantander.testmobdevbryan.URL_BASE_API
 import com.bancosantander.testmobdevbryan.data.remote.net.BreedsApi
 import com.bancosantander.testmobdevbryan.data.remote.source.BreedsRemoteDataSource
 import com.bancosantander.testmobdevbryan.data.repository.BreedsRepository
+import com.bancosantander.testmobdevbryan.domain.usecase.GetBreedsImgRemoteUseCase
 import com.bancosantander.testmobdevbryan.domain.usecase.GetBreedsRemoteUseCase
-import com.bancosantander.testmobdevbryan.presentation.activity.BreedsViewModel
+import com.bancosantander.testmobdevbryan.presentation.fragment.breeds.BreedsViewModel
+import com.bancosantander.testmobdevbryan.presentation.fragment.breedsDetail.BreedsImgViewModel
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -46,9 +48,15 @@ val appModule = module {
     factory { BreedsRepository(get()) }
     /* UseCase */
     factory { GetBreedsRemoteUseCase(get()) }
+    factory { GetBreedsImgRemoteUseCase(get()) }
     /* View models */
     viewModel {
         BreedsViewModel(
+            get()
+        )
+    }
+    viewModel {
+        BreedsImgViewModel(
             get()
         )
     }
