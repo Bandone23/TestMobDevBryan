@@ -58,6 +58,7 @@ class BreedsImgFragment : Fragment() {
                 binding.rvAnimalImgList.visibility = View.VISIBLE
 
                 if (result.value.message.isNotEmpty()) {
+                    breedsImg.clear()
                     for (item in result.value.message.indices) {
                         breedsImg.add(result.value.message[item])
                     }
