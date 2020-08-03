@@ -37,6 +37,7 @@ class BreedsFragment : Fragment() {
 
         return binding.root
 
+
     }
 
     private fun breedsObserver(result: Result<Breeds>?) {

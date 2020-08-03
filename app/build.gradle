@@ -75,7 +75,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
 
-  // asasa
+  // arquitecture
     implementation "androidx.arch.core:core-runtime:${versions.androidx_arch_core}"
     implementation "androidx.arch.core:core-common:${versions.androidx_arch_core}"
     implementation "androidx.core:core-ktx:${versions.androidx_core}"
