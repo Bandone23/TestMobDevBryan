@@ -9,9 +9,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bancosantander.core.coroutines.Result
 import com.bancosantander.core.extension.observe
-
-import com.bancosantander.testmobdevbryan.data.remote.model.BreedsImgEntry
 import com.bancosantander.testmobdevbryan.databinding.FragmentBreedsImgBinding
+import com.bancosantander.testmobdevbryan.domain.model.BreedsImg
 import com.bancosantander.testmobdevbryan.presentation.adapter.BreedImgAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -47,7 +46,7 @@ class BreedsImgFragment : Fragment() {
         return binding.root
     }
 
-    private fun breedsImgRemoteObserver(result: Result<BreedsImgEntry>?) {
+    private fun breedsImgRemoteObserver(result: Result<BreedsImg>?) {
         when (result) {
             is Result.OnLoading -> {
                 binding.rvAnimalImgList.visibility = View.GONE

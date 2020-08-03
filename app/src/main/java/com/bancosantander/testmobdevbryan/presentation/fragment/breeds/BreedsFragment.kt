@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bancosantander.core.coroutines.Result
 import com.bancosantander.core.extension.observe
 import com.bancosantander.testmobdevbryan.R
-import com.bancosantander.testmobdevbryan.data.remote.model.BreedsEntry
 import com.bancosantander.testmobdevbryan.databinding.FragmentBreedsBinding
+import com.bancosantander.testmobdevbryan.domain.model.Breeds
 import com.bancosantander.testmobdevbryan.presentation.adapter.BreedAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -39,7 +39,7 @@ class BreedsFragment : Fragment() {
 
     }
 
-    private fun breedsObserver(result: Result<BreedsEntry>?) {
+    private fun breedsObserver(result: Result<Breeds>?) {
         when (result) {
             is Result.OnLoading -> {
                 binding.rvAnimalList.visibility = View.GONE
