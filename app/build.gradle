@@ -3,14 +3,16 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
+apply from: rootProject.file("gradle-scripts/versions.gradle")
+
 android {
-    compileSdkVersion 29
+    compileSdkVersion compileSdk
     buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.bancosantander.testmobdevbryan"
-        minSdkVersion 22
-        targetSdkVersion 29
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -42,19 +44,20 @@ dependencies {
     implementation fileTree(dir: 'libs')
     implementation project(':core')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.1'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation "androidx.core:core-ktx:${versions.core_ktx}"
+    implementation "androidx.appcompat:appcompat:${versions.appcompact}"
+    implementation "androidx.constraintlayout:constraintlayout:${versions.constraintlayout}"
+    implementation "androidx.legacy:legacy-support-v4:${versions.legacy_support}"
 
     // test
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation "android.arch.core:core-testing:1.1.1"
-    androidTestImplementation "com.nhaarman:mockito-kotlin:1.5.0"
-    androidTestImplementation "org.mockito:mockito-android:2.8.47"
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test:rules:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    testImplementation "junit:junit:${versions.junit}"
+    androidTestImplementation "android.arch.core:core-testing:${versions.core_testing}"
+    androidTestImplementation "com.nhaarman:mockito-kotlin:${versions.mockito}"
+    androidTestImplementation "org.mockito:mockito-android:${versions.mockito_android}"
+    androidTestImplementation "com.android.support.test:runner:${versions.runner}"
+    androidTestImplementation "com.android.support.test:rules:${versions.rules}"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${versions.espresso}"
 
 
 
@@ -63,7 +66,7 @@ dependencies {
     implementation "org.koin:koin-androidx-scope:${versions.koin}"
     implementation "org.koin:koin-androidx-viewmodel:${versions.koin}"
     testImplementation "org.koin:koin-test:${versions.koin}"
-    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
+    implementation "com.jakewharton.threetenabp:threetenabp:${versions.threetenabp}"
 
     // api
     implementation "com.squareup.okhttp3:okhttp:${versions.okhttp}"
@@ -86,9 +89,9 @@ dependencies {
     implementation "com.google.android.material:material:${versions.material}"
 
     // navigation component
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.0"
-    implementation  "androidx.navigation:navigation-ui-ktx:2.3.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:${versions.navigation}"
+    implementation  "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
 
     // picasso
-    implementation "com.squareup.picasso:picasso:2.71828"
+    implementation "com.squareup.picasso:picasso:${versions.picasso}"
 }
