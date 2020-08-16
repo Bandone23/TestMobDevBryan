@@ -5,12 +5,14 @@ import com.bancosantander.core.extension.LiveResult
 import com.bancosantander.testmobdevbryan.domain.model.Breeds
 import com.bancosantander.testmobdevbryan.domain.usecase.GetBreedsRemoteUseCase
 
-class BreedsViewModel(
+
+open class BreedsViewModel(
     private val getBreedsRemoteUseCase: GetBreedsRemoteUseCase
 ):ViewModel() {
     val breedsLiveData = LiveResult<Breeds>()
 
-    fun getBreeds(){ getBreedsRemoteUseCase.execute(liveData = breedsLiveData) }
+
+    fun getBreeds(){ getBreedsRemoteUseCase.execute(liveData = breedsLiveData,params = Unit) }
 
 
 

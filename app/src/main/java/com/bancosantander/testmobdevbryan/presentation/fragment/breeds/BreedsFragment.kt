@@ -16,7 +16,7 @@ import com.bancosantander.testmobdevbryan.domain.model.Breeds
 import com.bancosantander.testmobdevbryan.presentation.adapter.BreedAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class BreedsFragment : Fragment() {
+open class BreedsFragment : Fragment() {
     private val viewModel: BreedsViewModel by viewModel()
     private lateinit var binding: FragmentBreedsBinding
     private val breeds: ArrayList<String> = ArrayList()
@@ -28,15 +28,19 @@ class BreedsFragment : Fragment() {
     ): View? {
         binding = FragmentBreedsBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
+        return binding.root
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
 
         with(viewModel) {
             observe(breedsLiveData, ::breedsObserver)
         }
         viewModel.getBreeds()
-
-        return binding.root
-
 
     }
 

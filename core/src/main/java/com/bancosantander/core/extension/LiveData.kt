@@ -35,3 +35,4 @@ fun LiveCompletable.postLoading() = postValue(Completable.OnLoading)
 
 @JvmName("postCancelCompletable")
 fun LiveCompletable.postCancel() = postValue(Completable.OnCancel)
+

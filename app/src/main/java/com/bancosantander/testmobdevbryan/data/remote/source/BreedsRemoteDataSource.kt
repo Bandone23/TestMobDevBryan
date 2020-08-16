@@ -7,14 +7,15 @@ import com.bancosantander.testmobdevbryan.data.remote.net.BreedsApi
 import okhttp3.ResponseBody
 import retrofit2.Call
 
-class BreedsRemoteDataSource(
+open class BreedsRemoteDataSource(
     private val api: BreedsApi
-) {
-    suspend fun getBreeds(): BreedsEntry {
+) :BreedsDataStore{
+    override suspend fun getBreeds(): BreedsEntry {
         return api.getBreeds().await()!!
     }
-    suspend fun getBreedsImg(name:String): BreedsImgEntry {
-        return api.getBreedsImg(name).await()!!
 
+    override suspend fun getBreedsImg(name: String): BreedsImgEntry {
+        return api.getBreedsImg(name).await()!!
     }
+
 }

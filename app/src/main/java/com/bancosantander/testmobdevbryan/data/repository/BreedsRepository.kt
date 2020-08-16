@@ -8,13 +8,16 @@ import com.bancosantander.testmobdevbryan.domain.model.Breeds
 import com.bancosantander.testmobdevbryan.domain.model.BreedsImg
 
 
-class BreedsRepository(
-    private val remoteDataSource: BreedsRemoteDataSource
-) {
-    suspend fun getBreeds():Breeds{
-        return  remoteDataSource.getBreeds().toBreeds()
+open class BreedsRepository(
+   // private val remoteDataSource: BreedsRemoteDataSource
+private val factory: BreedsRepositoryFactory
+):BreedsRepositoryIntrf {
+    override suspend fun getBreeds(): Breeds {
+      return factory.getRemoteDataSource().getBreeds().toBreeds()
     }
-    suspend fun getBreedsImg(name:String):BreedsImg {
-        return remoteDataSource.getBreedsImg(name).toBreedsImg()
+
+    override suspend fun getBreedsImg(name: String): BreedsImg {
+        return factory.getRemoteDataSource().getBreedsImg(name).toBreedsImg()
     }
+
 }
